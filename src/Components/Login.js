@@ -55,17 +55,14 @@ const handlesignIn = () => {
                email:email,
                displayName:displayName
               }))
-      
-    })
-    .then(() => {
-      navigate("/browse")
+              navigate("/browse");
     })
     .catch((error) => {
       // An error occurred
       // ...
     });
     
-    console.log(user);
+    // console.log(user);
     
   })
   .catch((error) => {
@@ -83,12 +80,10 @@ const handlesignIn = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user);
+    // console.log(user);
+    navigate("/browse")
 
   })
-  .then(
-    navigate('/browse')
-  )
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
