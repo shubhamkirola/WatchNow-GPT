@@ -95,9 +95,9 @@ const handlesignIn = () => {
 
   return (
     <div>
-      <div className='flex flex-row justify-between items-center px-24 h-24 absolute w-full bg-gradient-to-b from-black z-10'>
+      <div className='flex flex-row justify-between items-center px-24 h-28 absolute w-full bg-gradient-to-b from-black z-10'>
         <img src={LOGO} alt='logo' 
-        className='w-44 z-10'>
+        className='w-[9.5rem] z-10'>
         </img>
       </div>
       
