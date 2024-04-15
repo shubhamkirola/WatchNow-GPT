@@ -14,7 +14,8 @@ const SecondaryContainer = () => {
     <div className='bg-black'>
       <div className=" mt-0 md:-mt-52 pl-4 md:pl-12 relative z-20">
         <MovieList title={"Now Playing"} movies={data?.nowPlayingMovies}/>
-        <MovieList title={"Trending"} movies={data?.nowPlayingMovies}/>
+        <MovieList title={"Upcoming"} movies={data?.UpcomingMovies}/>
+        <MovieList title={"TopRated"} movies={data?.TopRatedMovies}/>
         <MovieList title={"Popular"} movies={data?.PopularMovies}/>
       </div>
     </div>
@@ -22,4 +23,4 @@ const SecondaryContainer = () => {
   )
 }
 
-export default SecondaryContainer
+export default SecondaryContainer;

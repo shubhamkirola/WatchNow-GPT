@@ -18,13 +18,15 @@ const GptSearchBar = () => {
         "&include_adult=false&language=en-US&page=1",
       API_OPTIONS
     );
+    if (!data) return null;
     const json = await data.json();
-
+  
     return json.results;
   };
 
   const handleGptSearchClick = async () => {
-    console.log(searchText.current.value);
+    try 
+    {console.log(searchText.current.value);
     // Make an API call to GPT API and get Movie Results
 
     const gptQuery =
@@ -37,35 +39,32 @@ const GptSearchBar = () => {
       model: "gpt-3.5-turbo",
     });
 
-    if (!gptResults.choices) {
-      // TODO: Write Error Handling
-    }
-
     console.log(gptResults.choices?.[0]?.message?.content);
 
-    // Andaz Apna Apna, Hera Pheri, Chupke Chupke, Jaane Bhi Do Yaaro, Padosan
     const gptMovies = gptResults.choices?.[0]?.message?.content.split(",");
-
-    // ["Andaz Apna Apna", "Hera Pheri", "Chupke Chupke", "Jaane Bhi Do Yaaro", "Padosan"]
 
     // For each movie I will search TMDB API
 
     const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
     // [Promise, Promise, Promise, Promise, Promise]
 
-    const tmdbResults = await Promise.all(promiseArray);
+    const tmdbResults = Promise.all(promiseArray);
 
-    console.log(tmdbResults);
+    // console.log(tmdbResults);
 
     dispatch(
       addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
     );
-  };
+   }
+   catch (error) {
+      alert("GPT API Subscription Expired !!!!")
+   }
+   }
 
   return (
-    <div className="pt-[35%] md:pt-[10%] flex justify-center">
+    <div className="pt-[10%] flex justify-center">
       <form
-        className="w-full md:w-1/2 bg-black grid grid-cols-12"
+       className="w-full md:w-1/2 bg-black grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
       >
         <input

@@ -79,13 +79,8 @@ const Header = () => {
           >
             {showGptSearch ? "Homepage" : "GPT Search"}
           </button>
-          <img
-            className="hidden md:block w-12 h-12"
-            alt="usericon"
-            src={user?.photoURL}
-          />
-          <button onClick={handleSignOut} className="font-bold text-white ">
-            (Sign Out)
+          <button onClick={handleSignOut} className="py-2 px-4 mx-4 my-2 bg-red-700 text-white border rounded-lg font-bold">
+            Sign Out
           </button>
         </div>
       )}
