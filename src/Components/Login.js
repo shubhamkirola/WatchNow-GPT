@@ -8,8 +8,6 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../Utils/userSlice';
 
-
-
 const Login = () => {
 
 const [signIn, setsignIn] = useState(true);
